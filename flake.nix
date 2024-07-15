@@ -18,8 +18,7 @@
         };
 
         tailwindcssBin = pkgs.writeShellScriptBin "tailwindcss" ''
-          cd ${tailwindcssNpm}/lib/node_modules/tailwind-daisyui-flake
-          exec ${pkgs.nodejs}/bin/npx tailwindcss "$@"
+          ${pkgs.nodejs}/bin/npx --prefix ${tailwindcssNpm}/lib/node_modules/tailwind-daisyui-flake tailwindcss "$@"
         '';
       in {
         packages.tailwindNpm = tailwindcssNpm;
