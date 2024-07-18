@@ -14,12 +14,12 @@
           name = "tailwindcss";
           dontNpmBuild = true;
           src = ./.;
-          npmDepsHash = "sha256-9gAUt5s96Mv1wNIcKxJVLvGZP5HTPMJz8XRMt38uWHQ=";
+          npmDepsHash = "sha256-NTyMHdY6WjTvz38HtK7KCiK91OGiRNWC7ZSbRalfoG4=";
         };
 
         tailwindcssBin = pkgs.writeShellScriptBin "tailwindcss" ''
           export PATH=${pkgs.nodejs}/bin:$PATH
-          ${pkgs.nodejs}/bin/npm run --prefix ${tailwindcssNpm}/lib/node_modules/tailwind-daisyui-flake tailwindcss -- "$@"
+          npm run --prefix ${tailwindcssNpm}/lib/node_modules/tailwind-daisyui-flake tailwindcss -- "$(pwd)" "$@"
         '';
       in {
         packages.tailwindNpm = tailwindcssNpm;
