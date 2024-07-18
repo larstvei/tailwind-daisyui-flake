@@ -1,6 +1,10 @@
 {
   "name": "tailwind-daisyui-flake",
   "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "tailwindcss": "node index.js"
+  },
   "dependencies": {
     "daisyui": "^4.12.10",
     "tailwindcss": "^3.4.4"

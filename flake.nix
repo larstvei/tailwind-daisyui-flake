@@ -18,7 +18,7 @@
         };
 
         tailwindcssBin = pkgs.writeShellScriptBin "tailwindcss" ''
-          ${pkgs.nodejs}/bin/npx --prefix ${tailwindcssNpm}/lib/node_modules/tailwind-daisyui-flake tailwindcss "$@"
+          ${pkgs.nodejs}/bin/npm run --prefix ${tailwindcssNpm}/lib/node_modules/tailwind-daisyui-flake tailwindcss -- "$@"
         '';
       in {
         packages.tailwindNpm = tailwindcssNpm;
@@ -28,6 +28,7 @@
           nativeBuildInputs = [
             pkgs.nodejs
             pkgs.prefetch-npm-deps
+            tailwindcssBin
           ];
         };
       });
