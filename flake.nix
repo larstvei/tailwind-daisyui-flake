@@ -18,6 +18,7 @@
         };
 
         tailwindcssBin = pkgs.writeShellScriptBin "tailwindcss" ''
+          export PATH=${pkgs.nodejs}/bin:$PATH
           ${pkgs.nodejs}/bin/npm run --prefix ${tailwindcssNpm}/lib/node_modules/tailwind-daisyui-flake tailwindcss -- "$@"
         '';
       in {
